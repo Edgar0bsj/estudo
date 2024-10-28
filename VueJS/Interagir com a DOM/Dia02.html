@@ -5,6 +5,7 @@
 <div id="app">
 
     <p>{{ titulo }}</p>
+    <p>{{ saudacao() }}</p>
 
 </div>
 
@@ -16,6 +17,11 @@
 
         data: {
             titulo: 'Usando Vue.js 2!'
+        },
+        methods:{
+            saudacao: function (){
+                return 'Boa Semana!'
+            }
         }
     })
 </script>
