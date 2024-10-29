@@ -1,0 +1,41 @@
+<!-- VUE.JS -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!------------>
+
+<div id="app">
+    <p> {{ contador }} </p>
+    <button v-on:click="somar"> Somar 1 </button>
+<!-- 
+Sempre que o mause se mover aonde a teg <p> esta
+vai disparar o evento "atualizarXY";
+"atualizarXY" -> captura todos os evento que vem do mousemove
+e atualiza as variaveis com a informação da posição x e y
+O argumento "evento" é passado altomaticamente
+-->
+    <p v-on:mousemove="atualizarXY">Mouse: {{ x }}, {{ y }} </p>
+</div>
+
+
+
+<script>
+    new Vue({
+        el: '#app',
+
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0,
+        },
+        methods: {
+            somar: function () {
+                return this.contador++
+            },
+            atualizarXY: function(evento){
+                console.log(evento)
+                this.x = evento.clientX
+                this.y = evento.clientY
+            }
+        }
+
+    })
+</script>

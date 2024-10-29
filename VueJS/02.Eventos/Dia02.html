@@ -1,0 +1,39 @@
+<!-- VUE.JS -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!------------>
+
+<div id="app">
+    <p> {{ contador }} </p>
+<!-- 
+# PASSANDO OS PROPRIO PARÂMETROS
+$event -> É uma palavra reservada para capturar o evento
+-->
+    <button v-on:click="somar(5, $event)"> Somar </button>
+    <p v-on:mousemove="atualizarXY">Mouse: {{ x }}, {{ y }} </p>
+</div>
+
+
+
+<script>
+    new Vue({
+        el: '#app',
+
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0,
+        },
+        methods: {
+            somar: function (passo, evento) {
+                console.log(evento)
+                this.contador += passo
+                return this.contador
+            },
+            atualizarXY: function (evento) {
+                this.x = evento.clientX
+                this.y = evento.clientY
+            }
+        }
+
+    })
+</script>
