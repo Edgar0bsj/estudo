@@ -1,0 +1,39 @@
+<!-- VUE.JS -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!------------>
+
+<div id="app">
+<p> {{ titulo }} </p>
+
+<!-- 
+v-bind -> Escuta o vueJS e representa no html
+v-on -> Escuta o html e modifica a istancia do vueJS
+-->
+<input type="text" 
+v-bind:value="titulo"
+v-on:input="titulo = $event.target.value"
+>
+<!-- /// -->
+
+<!-- 
+v-bind -> Forma reduzida -> " : "
+v-on -> Forma reduzida -> " @ "
+-->
+<input type="text" 
+:value="titulo"
+@input="titulo = $event.target.value"
+>
+<!-- //// -->
+</div>
+
+
+
+<script>
+    new Vue({
+        el: '#app',
+
+        data: {
+            titulo: 'Usando VueJS!',
+        }
+    })
+</script>
