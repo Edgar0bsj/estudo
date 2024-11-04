@@ -16,6 +16,7 @@
     <!-- 3) Ajuste o exemplo 2 para disparar o evento "keydown" somente
         quando a tecla for ENTER -->
     <div>
+        <p>Será executado após o ENTER</p>
         <input type="text" v-on:keydown.enter="imprimirValor" >
         <p>{{ valor }}</p>
     </div>
@@ -32,7 +33,7 @@
                 alert('O alerta foi disparado!')
             },
             imprimirValor: function(event){
-                this.valor = event.target.value
+                this.valor = event.target.value;
             }
         }
     })
